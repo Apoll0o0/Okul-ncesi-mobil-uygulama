@@ -24,10 +24,10 @@ function Adminpage({ navigation }) {
     }
     async function loginbutton() {
         if (emails === logindata.email && passwords === logindata.password) {
-            Alert.alert("Login Successful", "You are now logged in as a teacher!");
+            Alert.alert("Giriş Başarılı", "Şu an öğretmen olarak giriş yaptınız");
             navigation.navigate("adminpanel");
         } else {
-            Alert.alert("Login Failed", "Incorrect email or password.");
+            Alert.alert("Giriş Başarısız", "Yanlış e-posta veya şifre.");
         }
     }
     async function gettingadmininfo() {
@@ -39,7 +39,7 @@ function Adminpage({ navigation }) {
             setemail("");
             setpassword("");
         } catch (error) {
-            Alert.alert("Error", "Admin data not found: " + error);
+            Alert.alert("Error", "Admin verileri bulunamadı: " + error);
         }
     }
     return (
@@ -48,7 +48,7 @@ function Adminpage({ navigation }) {
                 <Pressable onPress={backarrowhandle}>
                     <Ionicons name="arrow-back" size={25} color="#1DB954" />
                 </Pressable>
-                <Text style={styles.headerText}>Teacher Login</Text>
+                <Text style={styles.headerText}>Öğretmen Girişi</Text>
             </View>
             <View style={styles.mainContainer}>
                 <View style={styles.imageContainer}>
@@ -56,20 +56,20 @@ function Adminpage({ navigation }) {
                 </View>
                 <View style={styles.multiLoginButton}>
                     <Pressable style={styles.loginOption} onPress={() => navigation.navigate("Login")}>
-                        <Text style={styles.loginOptionText}>Student Login</Text>
+                        <Text style={styles.loginOptionText}>Öğrenci Girişi</Text>
                     </Pressable>
                     <Pressable style={styles.loginOption}>
-                        <Text style={styles.loginOptionText}>Teacher Login</Text>
+                        <Text style={styles.loginOptionText}>Öğretmen Girişi</Text>
                     </Pressable>
                 </View>
                 <View>
-                    <Text style={styles.label}>Teacher Email:</Text>
+                    <Text style={styles.label}>Öğretmen Maili:</Text>
                     <View style={styles.inputBox}>
                         <TextInput
                             style={styles.inputText}
                             value={emails}
                             onChangeText={emailhandle}
-                            placeholder="Enter your email"
+                            placeholder="Mailinizi giriniz"
                             placeholderTextColor="#A0A0A0"
                         />
                     </View>
@@ -81,7 +81,7 @@ function Adminpage({ navigation }) {
                             style={styles.inputText}
                             value={passwords}
                             onChangeText={passwordhandle}
-                            placeholder="Enter your password"
+                            placeholder="Şifrenizi giriniz"
                             secureTextEntry
                             placeholderTextColor="#A0A0A0"
                         />
@@ -89,14 +89,14 @@ function Adminpage({ navigation }) {
                 </View>
                 <View>
                     <Pressable style={styles.loginButton} onPress={loginbutton}>
-                        <Text style={styles.loginButtonText}>Login</Text>
+                        <Text style={styles.loginButtonText}>Giriş</Text>
                     </Pressable>
                 </View>
             </View>
            <View style={styles.footer}>
-                <Text style={styles.footerText}>Don't have an account?</Text>
+                <Text style={styles.footerText}>Hesabınız yok mu?</Text>
                 <Pressable onPress={signupbutton}>
-                    <Text style={[styles.footerText, styles.signupText]}>Sign up</Text>
+                    <Text style={[styles.footerText, styles.signupText]}>Kaydolun</Text>
                 </Pressable>
             </View>
         </View>

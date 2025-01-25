@@ -5,53 +5,44 @@ function Adminpanel({navigation}) {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Admin Dashboard</Text>
+        <Text style={styles.headerTitle}>Öğretmen Paneli</Text>
       </View>
       <View style={styles.statsContainer}>
         <View style={styles.statCard}>
           <Pressable onPress={()=>navigation.navigate("allstudent")}>
           <Ionicons name="people-outline" size={40} color="#1DB954" />
-          <Text style={styles.statText}>Total Users</Text>
-          <Text style={styles.statNumber}>1,240</Text>
+          <Text style={styles.statText}>Öğrenciler</Text>
           </Pressable>
         </View>
         <View style={styles.statCard}>
-          <Pressable onPress={()=>navigation.navigate("studentstatus")}>
+          <Pressable onPress={()=>navigation.navigate("teacherStatus")}>
           <Ionicons name="book-outline" size={40} color="#BB86FC" />
-          <Text style={styles.statText}>Student status</Text>
+          <Text style={styles.statText}>Öğrenci durumu</Text>
           </Pressable> 
-        </View>
-        <View style={styles.statCard}>
-          <Ionicons name="cash-outline" size={40} color="#1DB954" />
-          <Text style={styles.statText}>Revenue</Text>
-          <Text style={styles.statNumber}>$8,530</Text>
         </View>
       </View>
       <View style={styles.navContainer}>
         <Pressable style={styles.navButton} onPress={()=>navigation.navigate("timetable")}>
           <Ionicons name="settings-outline" size={24} color="#E0E0E0" />
-          <Text style={styles.navText}>Time Table</Text>
+          <Text style={styles.navText}>Ders Programı</Text>
         </Pressable>
         <Pressable style={styles.navButton} onPress={()=>navigation.navigate("addresult")}>
           <Ionicons name="analytics-outline" size={24} color="#E0E0E0" />
-          <Text style={styles.navText}>Result</Text>
+          <Text style={styles.navText}>Sonuçlar</Text>
         </Pressable>
         <Pressable style={styles.navButton} onPress={()=>navigation.navigate("addnotification")}>
           <Ionicons name="notifications-outline" size={24} color="#E0E0E0" />
-          <Text style={styles.navText}>Notifications</Text>
+          <Text style={styles.navText}>Bildirimler</Text>
         </Pressable>
       
       </View>
       <View style={styles.logoutContainer}>
                 <Pressable style={styles.logoutButton} onPress={()=>navigation.navigate("adminlogin")}>
-                    <Text style={styles.logoutText}>Logout</Text>
+                    <Text style={styles.logoutText}>Çıkış</Text>
                 </Pressable>
             </View>
         <View style={styles.activityContainer}>
-        <Text style={styles.activityTitle}>Recent Activity</Text>
-        <View style={styles.activityPlaceholder}>
-          <Text style={styles.activityText}>Activity Feed or Chart Placeholder</Text>
-        </View>
+        
       </View>
     </ScrollView>
   );

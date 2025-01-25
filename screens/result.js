@@ -81,7 +81,7 @@ function Result() {
     if (loading) {
         return (
             <View style={styles.loadingContainer}>
-                <Text style={styles.loadingText}>Loading...</Text>
+                <Text style={styles.loadingText}>Yükleniyor...</Text>
             </View>
         );
     }
@@ -91,7 +91,7 @@ function Result() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.screenTitle}>Your Results</Text>
+            <Text style={styles.screenTitle}>Sonuçlarınız</Text>
             <View>
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.monthScroll}>
                     {months.map((month) => (
@@ -113,7 +113,7 @@ function Result() {
             {filteredResults.length === 0 ? (
                 <View style={styles.noResultContainer}>
                     <Ionicons name="sad-outline" size={50} color="#BB86FC" />
-                    <Text style={styles.noResultText}>No results found</Text>
+                    <Text style={styles.noResultText}>Sonuç bulunamadı</Text>
                 </View>
             ) : (
                 <ScrollView>
@@ -127,16 +127,16 @@ function Result() {
                                 <View style={styles.resultRow}>
                                     <Ionicons name="medal-outline" size={18} color="#E0E0E0" />
                                     <Text style={styles.resultMarks}>
-                                        Marks: {data.obtainedMarks} / {data.totalMarks}
+                                        Not: {data.obtainedMarks} / {data.totalMarks}
                                     </Text>
                                 </View>
                                 <View style={styles.resultRow}>
                                     <Ionicons name="analytics-outline" size={18} color="#1DB954" />
-                                    <Text style={styles.resultMarks}>Percentage: {((data.obtainedMarks / data.totalMarks) * 100).toFixed(2)}%</Text>
+                                    <Text style={styles.resultMarks}>Yüzde: {((data.obtainedMarks / data.totalMarks) * 100).toFixed(2)}%</Text>
                                 </View>
                                 <View style={styles.resultRow}>
                                     <Ionicons name="trophy-outline" size={18} color="#E0E0E0" />
-                                    <Text style={styles.resultMarks}>Grade: {getGrade((data.obtainedMarks / data.totalMarks) * 100)}</Text>
+                                    <Text style={styles.resultMarks}>Derece: {getGrade((data.obtainedMarks / data.totalMarks) * 100)}</Text>
                                 </View>
                             </View>
                         </View>

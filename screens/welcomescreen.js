@@ -13,19 +13,19 @@ function Welcomescreen({ navigation }) {
       </View>
 
       <View style={styles.textcontainer}>
-        <Text style={styles.welcometext}>Welcome to your Student Portal!</Text>
+        <Text style={styles.welcometext}>Okul Öncesi Uygulamasına Hoşgeldiniz</Text>
         <Text style={styles.descriptiontext}>
-          Easily access academic information and stay connected for an optimized learning experience.
+         Öğrenirken eğlenmeyi eğlenirken öğrenmeyi amaçlayan aynı zamanda çocuklarınızın gelişimini gözlemlemenizi sağlayan bir eğitim uygulaması.
         </Text>
       </View>
 
       <View style={styles.buttoncontainer}>
         <Pressable style={styles.buttonstyle} onPress={loginbuttonhandel}>
-          <Text style={styles.buttontext}>Login</Text>
+          <Text style={styles.buttontext}>Giriş</Text>
         </Pressable>
 
         <Pressable style={styles.buttonstyle} onPress={signupbuttonhandel}>
-          <Text style={styles.buttontext}>Signup</Text>
+          <Text style={styles.buttontext}>Kaydolun</Text>
         </Pressable>
       </View>
     </View>

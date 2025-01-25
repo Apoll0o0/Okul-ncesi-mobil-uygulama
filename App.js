@@ -20,6 +20,9 @@ import Allstudent from "./screens/allstudent";
 import Addnotification from "./screens/addnotification";
 import Timetable from "./screens/timetablehandel";
 import AddResult from "./screens/resulthandel";
+import StudentStatus from "./screens/studentStatus";
+import TeacherStatus from "./screens/TeacherStatus";
+
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 function Stackscreens() {
@@ -32,8 +35,11 @@ function Stackscreens() {
       <Stack.Screen name="adminpanel" component={Adminpanel} options={{ headerShown: false }} />
       <Stack.Screen name="allstudent" component={Allstudent} options={{ headerShown: false }} />
       <Stack.Screen name="addnotification" component={Addnotification} options={{ headerShown: false }} /> 
+      <Stack.Screen name="teacherStatus" component={TeacherStatus} options={{ headerShown: false }} /> 
+      <Stack.Screen name="studentStatus" component={StudentStatus} options={{ headerShown: false }} /> 
       <Stack.Screen name="timetable" component={Timetable} />
-      <Stack.Screen name="addresult" component={AddResult} /> 
+      <Stack.Screen name="addresult" component={AddResult} />
+       
     
     </Stack.Navigator>
   );

@@ -32,7 +32,7 @@ function Loginscreen({ navigation }) {
         authctx.authenicate(token);
         setemail("");
         setpassword("");
-        Alert.alert("Authentication successful");
+        Alert.alert("Kimlik doğrulama başarılı");
       }
     } catch (error) {
       Alert.alert("Student not found!", "Enter correct email password");
@@ -48,7 +48,7 @@ function Loginscreen({ navigation }) {
           </View>
          
         </Pressable>
-        <Text style={styles.logintexthead}>Student Login</Text>
+        <Text style={styles.logintexthead}>Öğrenci Girişi</Text>
       </View>
 
       <View style={styles.maincontainer}>
@@ -58,45 +58,45 @@ function Loginscreen({ navigation }) {
 
         <View style={styles.multiloginbutton}>
           <Pressable style={styles.togglebutton}>
-            <Text style={styles.togglebuttontext}>Student Login</Text>
+            <Text style={styles.togglebuttontext}>Öğrenci Girişi</Text>
           </Pressable>
           <Pressable style={styles.togglebutton} onPress={() => navigation.navigate("adminlogin")}>
-            <Text style={styles.togglebuttontext}>Teacher Login</Text>
+            <Text style={styles.togglebuttontext}>Öğretmen Girişi</Text>
           </Pressable>
         </View>
 
-        <Text style={styles.textstyle}>Student email:</Text>
+        <Text style={styles.textstyle}>Öğrenci Maili:</Text>
         <View style={styles.inputbox}>
           <TextInput
             style={styles.inputtext}
             value={email}
             onChangeText={emailhandel}
-            placeholder="Email"
+            placeholder="Mailinizi giriniz"
             placeholderTextColor="#A0A0A0"
           />
         </View>
 
-        <Text style={styles.textstyle}>Password:</Text>
+        <Text style={styles.textstyle}>Şifre:</Text>
         <View style={styles.inputbox}>
           <TextInput
             style={styles.inputtext}
             value={password}
             onChangeText={passwordhandel}
-            placeholder="Password"
+            placeholder="Şifrenizi giriniz"
             secureTextEntry
             placeholderTextColor="#A0A0A0"
           />
         </View>
 
         <Pressable style={styles.buttonstyle} onPress={loginbutton}>
-          <Text style={styles.buttontext}>Login</Text>
+          <Text style={styles.buttontext}>Giriş</Text>
         </Pressable>
       </View>
 
       <View style={styles.footerstyle}>
-        <Text style={styles.textstyle}>Don't have an account? </Text>
+        <Text style={styles.textstyle}>Hesabınız yok mu? </Text>
         <Pressable onPress={signupbutton}>
-          <Text style={[styles.textstyle, styles.signuptext]}>Sign up</Text>
+          <Text style={[styles.textstyle, styles.signuptext]}>Kaydolun</Text>
         </Pressable>
       </View>
     </View>

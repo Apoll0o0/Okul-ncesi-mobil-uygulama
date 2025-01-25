@@ -26,7 +26,7 @@ function Notification() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.screenTitle}>Notifications</Text>
+            <Text style={styles.screenTitle}>Bildirimler</Text>
             <ScrollView>
                 {notifications.length > 0 ? (
                     notifications.map((item) => (
@@ -41,7 +41,7 @@ function Notification() {
                         </View>
                     ))
                 ) : (
-                    <Text style={styles.noNotificationText}>No notifications available</Text>
+                    <Text style={styles.noNotificationText}>Mevcut bildirim yok</Text>
                 )}
             </ScrollView>
         </View>

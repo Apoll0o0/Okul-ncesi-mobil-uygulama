@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { View, Text, TextInput, StyleSheet, Pressable, ScrollView } from "react-native";
+import { View, Text, TextInput, StyleSheet, Pressable, ScrollView, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { db } from "../firebasestore"; // Firestore bağlantınızı içeren dosya
+import { addDoc, collection } from "firebase/firestore";
 
 function Timetable() {
   const [subjects, setSubjects] = useState([]); 
+  const [className, setClassName] = useState(""); // Sınıf adı için state
 
   const addNewSubject = () => {
     setSubjects([...subjects, { name: "", startTime: "", endTime: "" }]);
@@ -15,47 +18,75 @@ function Timetable() {
     setSubjects(updatedSubjects);
   };
 
+  const saveTimetableToFirestore = async () => {
+    if (!className || subjects.length === 0) {
+      Alert.alert("Hata", "Lütfen sınıf adı ve en az bir konu girin.");
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, "timetable"), {
+        className: className,
+        subjects: subjects,
+      });
+      Alert.alert("Başarılı", "Zaman tablosu Firestore'a kaydedildi!");
+      setClassName("");
+      setSubjects([]);
+    } catch (error) {
+      Alert.alert("Hata", "Veriler kaydedilirken bir hata oluştu: " + error.message);
+    }
+  };
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
         <Pressable onPress={addNewSubject}>
           <Ionicons style={styles.iconStyle} name="add" size={26} color="#1DB954" />
         </Pressable>
-        <Text style={styles.headerText}>Add Subject</Text>
+        <Text style={styles.headerText}>Konu Ekle</Text>
       </View>
 
       <View style={styles.inputContainer}>
-        <Text>Enter class:</Text>
-        <TextInput style={styles.classStyle} placeholder="Enter class name" />
+        <Text style={styles.Textstyle}>Yaş grubu girin:</Text>
+        <TextInput
+          style={styles.classStyle}
+          placeholder="Sınıf adını girin"
+          value={className}
+          onChangeText={(text) => setClassName(text)}
+        />
       </View>
 
       {subjects.map((subject, index) => (
         <View key={index} style={styles.addSubjectContainer}>
-          <Text style={styles.Textstyle}>Subject Name:</Text>
+          <Text style={styles.Textstyle}>Konu ismi:</Text>
           <TextInput
             style={styles.classStyle}
-            placeholder="Enter subject name"
+            placeholder="Konu ismi girin"
             value={subject.name}
             onChangeText={(text) => handleSubjectChange(index, "name", text)}
           />
 
-          <Text  style={styles.Textstyle}>Start Time:</Text>
+          <Text style={styles.Textstyle}>Başlangıç zamanı:</Text>
           <TextInput
             style={styles.classStyle}
-            placeholder="Enter start time"
+            placeholder="Başlangıç zamanı girin"
             value={subject.startTime}
             onChangeText={(text) => handleSubjectChange(index, "startTime", text)}
           />
 
-          <Text  style={styles.Textstyle}>End Time:</Text>
+          <Text style={styles.Textstyle}>Bitiş zamanı:</Text>
           <TextInput
             style={styles.classStyle}
-            placeholder="Enter end time"
+            placeholder="Bitiş zamanı girin"
             value={subject.endTime}
             onChangeText={(text) => handleSubjectChange(index, "endTime", text)}
           />
         </View>
       ))}
+
+      <Pressable style={styles.saveButton} onPress={saveTimetableToFirestore}>
+        <Text style={styles.saveButtonText}>Zaman Tablosunu Kaydet</Text>
+      </Pressable>
     </ScrollView>
   );
 }
@@ -105,7 +136,17 @@ const styles = StyleSheet.create({
     elevation: 3,
     marginBottom: 10,
   },
-  Textstyle:{
+  Textstyle: {
     color: "#E0E0E0",
-  }
+  },
+  saveButton: {
+    backgroundColor: "#1DB954",
+    padding: 12,
+    borderRadius: 8,
+    alignItems: "center",
+  },
+  saveButtonText: {
+    color: "#FFFFFF",
+    fontWeight: "bold",
+  },
 });

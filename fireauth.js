@@ -1,5 +1,5 @@
 import axios from "axios";
-const Apikey="";////use your own firebase api key
+const Apikey="AIzaSyBudMGw2lgzPL06PpIT2xWzzULfdr33O2o";////use your own firebase api key
 export async function Createuser(email,password){
    const response=await axios.post("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="+Apikey,
         {

@@ -33,7 +33,7 @@ function AddResult() {
   
     const handleInitialFormSubmit = () => {
         if (!month) {
-            Alert.alert('Error', 'Please fill in the month.');
+            Alert.alert('Hata', 'Lütfen ayı doldurunuz.');
             return;
         }
         setStage('selectStudent'); 
@@ -76,12 +76,12 @@ function AddResult() {
                     obtainedMarks: subject.obtainedMarks,
                 });
             }
-            Alert.alert('Success', 'Results saved successfully!');
+            Alert.alert('Başarılı', 'Sonuçlar başarıyla kaydedildi!');
          
             resetForm();
         } catch (error) {
             console.error("Error saving result:", error);
-            Alert.alert('Error', 'Failed to save the results. Please try again.');
+            Alert.alert('Hata', 'Sonuçlar kaydedilmedi. Lütfen tekrar deneyşn.');
         }
     };
     const resetForm = () => {
@@ -94,22 +94,22 @@ function AddResult() {
         <View style={styles.container}>
             {stage === 'initialForm' && (
                 <View>
-                    <Text style={styles.title}>Enter Month</Text>
+                    <Text style={styles.title}>Ay Girin</Text>
                     <TextInput
                         style={styles.input}
-                        placeholder="Month"
+                        placeholder="Ay"
                         placeholderTextColor="#A0A0A0"
                         value={month}
                         onChangeText={setMonth}
                     />
-                    <Button title="Next" onPress={handleInitialFormSubmit} color="#1DB954" />
+                    <Button title="Sonraki" onPress={handleInitialFormSubmit} color="#1DB954" />
                 </View>
             )}
             {stage === 'selectStudent' && (
                 <View>
-                    <Text style={styles.title}>Select a Student</Text>
+                    <Text style={styles.title}>Öğrenci seç</Text>
                     {loading ? (
-                        <Text style={styles.loadingText}>Loading students...</Text>
+                        <Text style={styles.loadingText}>Öğrenci yükleniyor...</Text>
                     ) : (
                         <FlatList
                             data={students}
@@ -131,19 +131,19 @@ function AddResult() {
             )}
             {stage === 'enterSubjects' && (
                 <View>
-                    <Text style={styles.title}>Enter Subjects</Text>
+                    <Text style={styles.title}>Konuları Girin</Text>
                     {subjects.map((subject, index) => (
                         <View key={index} style={styles.subjectContainer}>
                             <TextInput
                                 style={styles.input}
-                                placeholder="Subject Name"
+                                placeholder="Konu İsmi"
                                 placeholderTextColor="#A0A0A0"
                                 value={subject.name}
                                 onChangeText={(value) => handleSubjectChange(index, 'name', value)}
                             />
                             <TextInput
                                 style={styles.input}
-                                placeholder="Total Marks"
+                                placeholder="Toplam Puan"
                                 placeholderTextColor="#A0A0A0"
                                 value={subject.totalMarks}
                                 onChangeText={(value) => handleSubjectChange(index, 'totalMarks', value)}
@@ -151,7 +151,7 @@ function AddResult() {
                             />
                             <TextInput
                                 style={styles.input}
-                                placeholder="Obtained Marks"
+                                placeholder="Elde edilen puan"
                                 placeholderTextColor="#A0A0A0"
                                 value={subject.obtainedMarks}
                                 onChangeText={(value) => handleSubjectChange(index, 'obtainedMarks', value)}
@@ -159,8 +159,8 @@ function AddResult() {
                             />
                         </View>
                     ))}
-                    <Button title="Add Subject" onPress={handleAddSubject} color="#1DB954" />
-                    <Button title="Save Results" onPress={handleSaveResult} color="#1DB954" />
+                    <Button title="Konu ekle" onPress={handleAddSubject} color="#1DB954" />
+                    <Button title="Sonuçları kaydet" onPress={handleSaveResult} color="#1DB954" />
                 </View>
             )}
         </View>

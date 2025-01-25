@@ -30,7 +30,7 @@ function Profile() {
     return (
         <View style={styles.mainContainer}>
             <View style={styles.headerContainer}>
-                <Text style={styles.headerText}>Profile</Text>
+                <Text style={styles.headerText}>Profil</Text>
             </View>
             <View style={styles.imageContainer}>
                 <Image
@@ -40,11 +40,11 @@ function Profile() {
             </View>
             <View style={styles.profileContainer}>
                 {[
-                    { label: 'Name', value: studentdata.name, icon: 'person-outline' },
-                    { label: 'Class', value: studentdata.stdclass, icon: 'school-outline' },
-                    { label: 'Email', value: studentdata.email, icon: 'mail-outline' },
-                    { label: 'Gender', value: studentdata.gender, icon: 'male-female-outline' },
-                    { label: 'Phone No', value: studentdata.phonenumber, icon: 'call-outline' },
+                    { label: 'Ad Soyad', value: studentdata.name, icon: 'person-outline' },
+                    { label: 'Yaş Grubu', value: studentdata.stdclass, icon: 'school-outline' },
+                    { label: 'Mail', value: studentdata.email, icon: 'mail-outline' },
+                    { label: 'Cinsiyet', value: studentdata.gender, icon: 'male-female-outline' },
+                    { label: 'Telefon Num', value: studentdata.phonenumber, icon: 'call-outline' },
                 ].map((item, index) => (
                     <View key={index} style={styles.infoBox}>
                         <Ionicons name={item.icon} size={24} color={"#1DB954"} />
@@ -55,7 +55,7 @@ function Profile() {
             </View>
             <View style={styles.logoutContainer}>
                 <Pressable style={styles.logoutButton} onPress={logout}>
-                    <Text style={styles.logoutText}>Logout</Text>
+                    <Text style={styles.logoutText}>Çıkış</Text>
                 </Pressable>
             </View>
         </View>

@@ -18,9 +18,9 @@ function Addnotification({navigation}) {
         tital: tital,
         description: description
       });
-      Alert.alert("Notification added successfully");
+      Alert.alert("Duyuru başarıyla eklendi");
     } catch (error) {
-      Alert.alert("Error adding notification", error.message);
+      Alert.alert("Duyuru ekleme hatası", error.message);
     }
   }
   return (
@@ -30,32 +30,32 @@ function Addnotification({navigation}) {
         <Pressable style={styles.headericon} onPress={()=>navigation.navigate("adminpanel")}>
           <Ionicons name="arrow-back" color={"#1DB954"} size={28}/>
         </Pressable>
-        <Text style={styles.headerText}>Add Notification</Text>
+        <Text style={styles.headerText}>     Duyuru Ekle</Text>
       </View>
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>Title:</Text>
+        <Text style={styles.label}>Başlık:</Text>
         <TextInput
           value={tital}
           onChangeText={titalhandel}
           style={styles.input}
-          placeholder="Enter notification title"
+          placeholder="Duyuru başlığı girin"
           placeholderTextColor="#A0A0A0" 
         />
       </View>
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>Message:</Text>
+        <Text style={styles.label}>Mesaj:</Text>
         <TextInput
           value={description}
           onChangeText={descriptionhandel}
           style={[styles.input, styles.textArea]}
           multiline={true}
           numberOfLines={4}
-          placeholder="Enter your message here"
+          placeholder="Buraya mesaj girin"
           placeholderTextColor="#A0A0A0"
         />
       </View>
       <Pressable style={styles.button} onPress={notification}>
-        <Text style={styles.buttonText}>Send Notification</Text>
+        <Text style={styles.buttonText}>Duyuru yolla</Text>
       </Pressable>
     </View>
   );

@@ -23,17 +23,17 @@ function Allstudent({navigation}) {
       <Pressable style={styles.headericonstyle} onPress={()=>navigation.navigate("adminpanel")}> 
         <Ionicons name="arrow-back" size={28} color={"#1DB954"}/>
       </Pressable>
-      <Text style={styles.headertext}>All Students</Text>
+      <Text style={styles.headertext}>Tüm Öğrenciler</Text>
    </View>
     <ScrollView style={styles.container}>
       {allStudents.map((data) => (
         <View key={data.id} style={styles.studentBox}>
-          <Text style={styles.studentName}>Name: {data.name}</Text>
-          <Text style={styles.studentInfo}>Class: {data.stdclass}</Text>
-          <Text style={styles.studentInfo}>Email: {data.email}</Text>
-          <Text style={styles.studentInfo}>Password: {data.password}</Text>
-          <Text style={styles.studentInfo}>Gender: {data.gender}</Text>
-          <Text style={styles.studentInfo}>Phone Num: {data.phonenumber}</Text>
+          <Text style={styles.studentName}>Adı Soyadı: {data.name}</Text>
+          <Text style={styles.studentInfo}>Yaş: {data.stdclass}</Text>
+          <Text style={styles.studentInfo}>Mail: {data.email}</Text>
+          <Text style={styles.studentInfo}>Şifre: {data.password}</Text>
+          <Text style={styles.studentInfo}>Cinsiyet: {data.gender}</Text>
+          <Text style={styles.studentInfo}>Telefon Numarası: {data.phonenumber}</Text>
         </View>
       ))}
     </ScrollView>

@@ -83,7 +83,7 @@ function Signupscreen({ navigation }) {
         }
       }
       studentinfo();
-      Alert.alert("Register successfully");
+      Alert.alert("Kayıt Başarılı");
       setemail("");
       setname("");
       setphonenumber("");
@@ -100,78 +100,77 @@ function Signupscreen({ navigation }) {
         <Pressable onPress={backarrowhandel1}>
           <Ionicons name="arrow-back" size={24} color="#1DB954" />
         </Pressable>
-        <Text style={styles.signuptexthead}>Signup</Text>
+        <Text style={styles.signuptexthead}>Kaydolun</Text>
       </View>
       <View style={styles.containerInner}>
-        <Text style={styles.headtext}>Sign Up:</Text>
+        <Text style={styles.headtext}>Kaydolun:</Text>
         <View>
-          <Text style={styles.textstyle}>Full Name:</Text>
+          <Text style={styles.textstyle}>Ad Soyad:</Text>
           <View style={styles.inputbox}>
-            <TextInput style={styles.inputtext} value={name} onChangeText={namehandel} placeholder="Full Name" placeholderTextColor="#A0A0A0" />
+            <TextInput style={styles.inputtext} value={name} onChangeText={namehandel} placeholder="Adınız Soyadınız" placeholderTextColor="#A0A0A0" />
           </View>
           <View>
-            <Text style={styles.textstyle}>Email:</Text>
+            <Text style={styles.textstyle}>Mail:</Text>
             <View style={styles.inputbox}>
-              <TextInput style={styles.inputtext} value={email} onChangeText={emailhandel} placeholder="Email" placeholderTextColor="#A0A0A0" />
+              <TextInput style={styles.inputtext} value={email} onChangeText={emailhandel} placeholder="Mail" placeholderTextColor="#A0A0A0" />
             </View>
           </View>
           <View>
-            <Text style={styles.textstyle}>Phone No:</Text>
+            <Text style={styles.textstyle}>Telefon Numarası:</Text>
             <View style={styles.inputbox}>
-              <TextInput style={styles.inputtext} value={phonenumber} onChangeText={phonenumberhandel} keyboardType="decimal-pad" placeholder="Phone No" placeholderTextColor="#A0A0A0" />
+              <TextInput style={styles.inputtext} value={phonenumber} onChangeText={phonenumberhandel} keyboardType="decimal-pad" placeholder="Telefon Numarası" placeholderTextColor="#A0A0A0" />
             </View>
           </View>
           <View>
             <View style={styles.pickerbox}>
-              <Text style={styles.textstyle}>Gender:</Text>
+              <Text style={styles.textstyle}>Cinsiyet:</Text>
               <Pressable onPress={pickerhandel}>
                 <Ionicons name={pickervisible ? "chevron-up" : "chevron-down"} size={24} color="#E0E0E0" />
               </Pressable>
             </View>
             {pickervisible && (
               <Picker selectedValue={selectgender} onValueChange={(itemvalue) => setselectgender(itemvalue)} style={styles.picker}>
-                <Picker.Item label="Male" value="Male" />
-                <Picker.Item label="Female" value="Female" />
-                <Picker.Item label="Other" value="Other" />
+                <Picker.Item label="Erkek" value="Erkek" />
+                <Picker.Item label="Kadın" value="Kadın" />
               </Picker>
             )}
           </View>
           <View style={styles.pickerspace}>
             <View style={styles.pickerbox}>
-              <Text style={styles.textstyle}>Select class:</Text>
+              <Text style={styles.textstyle}>Yaş Aralığı</Text>
               <Pressable onPress={pickerclasshandel}>
                 <Ionicons name={pickerclass ? "chevron-up" : "chevron-down"} size={24} color="#E0E0E0" />
               </Pressable>
             </View>
             {pickerclass && (
               <Picker selectedValue={selectclass} onValueChange={(itemvalue) => setselectclass(itemvalue)} style={styles.picker}>
-                <Picker.Item label="9th" value="9th" />
-                <Picker.Item label="10th" value="10th" />
+                <Picker.Item label="48-60 Aylik" value="48-60 Aylik" />
+                <Picker.Item label="60-72 Aylik" value="60-72 Aylik" />
               </Picker>
             )}
           </View>
           <View>
-            <Text style={styles.textstyle}>Password:</Text>
+            <Text style={styles.textstyle}>Şifre:</Text>
             <View style={styles.inputbox}>
-              <TextInput style={styles.inputtext} value={password} onChangeText={passwordhandel} placeholder="Password" placeholderTextColor="#A0A0A0" />
+              <TextInput style={styles.inputtext} value={password} onChangeText={passwordhandel} placeholder="Şifre" placeholderTextColor="#A0A0A0" />
             </View>
           </View>
           <View>
-            <Text style={styles.textstyle}>Confirm Password:</Text>
+            <Text style={styles.textstyle}>Şifreyi Onayla:</Text>
             <View style={styles.inputbox}>
-              <TextInput style={styles.inputtext} value={confirmpassword} onChangeText={confirmpasswordhandel} placeholder="Confirm Password" placeholderTextColor="#A0A0A0" />
+              <TextInput style={styles.inputtext} value={confirmpassword} onChangeText={confirmpasswordhandel} placeholder="Şifreyi Onayla" placeholderTextColor="#A0A0A0" />
             </View>
           </View>
         </View>
         <View>
           <Pressable style={styles.buttonstyle} onPress={registerbutton}>
-            <Text style={styles.buttontext}>Register</Text>
+            <Text style={styles.buttontext}>Kayıt Olun</Text>
           </Pressable>
         </View>
         <View style={styles.fotterstyle}>
-          <Text style={styles.textstyle}>Have an account? </Text>
+          <Text style={styles.textstyle}>Hesabınız var mı? </Text>
           <Pressable onPress={backarrowhandel}>
-            <Text style={[styles.textstyle, styles.logintext]}>Login</Text>
+            <Text style={[styles.textstyle, styles.logintext]}>Giriş</Text>
           </Pressable>
         </View>
       </View>
