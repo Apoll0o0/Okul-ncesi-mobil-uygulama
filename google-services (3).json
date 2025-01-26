@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "568314365551",
-    "project_id": "preschool-d24c5",
-    "storage_bucket": "preschool-d24c5.firebasestorage.app"
+    "project_number": "",
+    "project_id": "",
+    "storage_bucket": ""
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:568314365551:android:63904c2725d0b74c796f9a",
+        "mobilesdk_app_id": "",
         "android_client_info": {
           "package_name": "com.alperen.mobilapp"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBudMGw2lgzPL06PpIT2xWzzULfdr33O2o"
+          "current_key": ""
         }
       ],
       "services": {
